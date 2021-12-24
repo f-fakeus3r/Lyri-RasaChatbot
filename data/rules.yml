@@ -1,0 +1,51 @@
+version: "3.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+
+
+# ativa o formulário
+- rule: activate song form
+  steps:
+    - intent: ask_for_lyric   # intent that triggers form activation
+    - action: song_form      # run the form
+    - active_loop: song_form # this form is active
+
+# realiza o submit do formulario
+- rule: submit song form
+  condition:
+  - active_loop: song_form   # this form must be active
+  steps:
+    - action: song_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been filled
+    - action: utter_submit         # action to take after the form is complete
+    - action: utter_confirm_song_name
+    - action: utter_ask_artist_name
+
+
+- rule: active artist form
+  steps:
+    - intent: inform_artist_name
+    - action: artist_form
+    - active_loop: artist_form
+
+- rule: submit artist form
+  condition:
+  - active_loop: artist_form   # this form must be active
+  steps:
+    - action: artist_form      # run the form
+    - active_loop: null            # the form is no longer active because it has been filled
+    - action: utter_submit         # action to take after the form is complete
+    - action: action_show_lyrics
+    - action: utter_offer_more_help
+
+

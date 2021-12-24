@@ -1,0 +1,180 @@
+version: "3.0"
+nlu:
+- regex: name
+  examples: |
+    - /([A-Z a-z])/
+- intent: greet
+  examples: |
+    - Eai
+    - Olá
+    - Oi
+    - bom Dia
+    - boa noite
+    - boa tarde
+    - vamos lá
+    - aooos menino
+    - oooos menino
+    - opa
+- intent: goodbye
+  examples: |
+    - xau
+    - xauxau
+    - tchau
+    - até mais
+    - adeus
+    - até logo
+- intent: affirm
+  examples: |
+    - sim
+    - s
+    - exato
+    - isso mesmo
+    - exatamente
+    - Sim
+    - é isso mesmo
+    - é isso aí
+- intent: deny
+  examples: |
+    - não
+    - n
+    - Não exatamente
+    - Na verdade não
+    - Não
+- intent: bot_challenge
+  examples: |
+    - Você é um robô?
+    - Você é um humano?
+    - estou falando com um bot?
+    - estou falando com um humano?
+    - voce tem sentimentos?
+    - quem é você?
+- intent: ask_for_lyric
+  examples: |
+    - Gostaria da letra de uma música
+    - Quero uma letra de música
+    - Mostre-me letras de música
+    - Me mostre a letra de uma musica
+    - quero encontrar a letra de uma musica
+    - quero ver a letra de uma musica
+    - desejo ver letra de musica
+    - quero fazer uma busca
+    - quero fazer uma nova busca
+    - nova busca
+    - buscar novamente
+    - encontrar outra letra
+    - nova pesquisa
+    - não encontrei o que eu queria
+    - não era essa
+    - não deu certo
+- intent: inform_user_name #person_name
+  examples: |
+    - Eu me chamo [Pedro](user)
+    - Meu nome é [Luis](user)
+    - Eu sou [Paulo](user)
+    - Eu sou chamado [José](user)
+    - Me chamo: [Paulo](user)
+    - [Ricardo](user)
+    - meu nome é [Leonardo](user)
+    - [Claudio](user)
+    - [daniel](user)
+- intent: inform_song_name
+  examples: |
+    - a musica que eu quero é [+heaven+](song)
+    - Quero saber a letra da [+stressed out+](song)
+    - Me mostre a letra de [+broken+](song)
+    - por favor, gostaria da letra de [+numb+](song)
+    - quero a letra da musica [+playing god+](song)
+    - quero a musica [+21 guns+](song)
+    - [+before i forget+](song)
+    - [+reptilia+](song)
+    - [+beat it+](song)
+    - [+all the things she said+](song)
+    - [+the end of the world+](song)
+    - [+not the american average+](song)
+    - [+i love you+](song)
+    - [+baby+](song)
+    - [+will he](song)
+
+- intent: inform_artist_name
+  examples: |
+    - a banda é [-blink182-](artist)
+    - a cantora é a [-adele-](artist)
+    - quem canta é [-michael jackson-](artist)
+    - o nome da banda é [-scorpions-](artist)
+    - [-paramore-](artist)
+    - [-bryan adams-](artist)
+    - [-interpol-](artist)
+    - o cantor é o [-dayglow-](artist)
+    - [-nirvana-](artist)
+    - [-abba-](artist)
+    - [-Silk Groove-](artist)
+    - [-Second Nature-](artist)
+    - [-Asking Alexandria](artist)
+    - O nome da banda é [bring me the horizon](artist)
+    - a cantora é a [Avril Lavigne](artist)
+    - o artista é [the strokes](artist)
+# Só pra descontrair (como se eu n tivesse mais coisa pra fazer)
+
+- intent: ask_feeling
+  examples: |
+    - como voce está?
+    - você está bem?
+    - como você está se sentindo?
+    - você tem sentimentos?
+    - Como vai você?
+    - quero saber se voce tá bem?
+    - fi se ta bão?
+    - ta se sentindo bem?
+    - e como voce esta se sentindo?
+
+- intent: feeling_good
+  examples: |
+    - Eu to [bem](goodfeeling)
+    - Estou [feliz](goodfeeling)
+    - to [tranquilo](goodfeeling)
+    - to [de boa](goodfeeling)
+    - estou [contente](goodfeeling)
+    - estou [bem](goodfeeling) também, obrigado
+    - estou [bem](goodfeeling), obrigado
+    - estou [feliz](goodfeeling), obrigado
+    - to [suave](goodfeeling)
+    - [bem](goodfeeling)
+    - [bem](goodfeeling) também
+
+- intent: feeling_bad
+  examples: |
+    - Eu não to bem
+    - Estou triste
+    - chateado
+    - não estou bem
+    - infelizmente não estou bem
+    - estou com depressão
+    - to bem não
+    - não to legal
+    - estou entristecido
+
+- intent: compliment
+  examples: |
+    - magina
+    - voce me ajudou
+    - você não é bugada
+    - voce é muito boa
+    - gostei de voce
+    - espero conversar com voce de novo
+    - voce é a melhor
+    - eu te amo
+    - nao fala assim
+
+- intent: bad_result
+  examples: |
+    - você não me ajudou
+    - não encontrei o que queria
+    - você não funciona
+    - vc poderia funcionar melhor
+    - você é bugada
+    - voce é pessima
+    - não funcionou
+    - nao consegui achar a letra
+
+
+

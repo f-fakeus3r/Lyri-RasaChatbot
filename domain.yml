@@ -1,0 +1,106 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 180
+  carry_over_slots_to_new_session: true
+
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- ask_for_lyric
+- inform_user_name
+- inform_song_name
+- inform_artist_name
+- bot_challenge
+- ask_feeling
+- feeling_good
+- feeling_bad
+- compliment
+- bad_result
+
+entities:
+- artist
+- user
+- song
+- goodfeeling
+
+slots:
+  song_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: song
+  artist_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: artist
+  user_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: user
+  goodfeeling:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: goodfeeling
+
+
+responses:
+  utter_greet:
+  - text: "Olá, meu nome é +Lyri-, qual o seu nome?"
+  utter_proper_greet:
+  - text: "Prazer em te conhecer, {user_name}.\n\n
+           Eu ainda sou um bot em treinamento, então por favor, tenha paciência comigo (⌒_⌒;)"
+  utter_offer_help:
+  - text: "E então, como posso te ajudar?"
+  utter_ask_song_name:
+  - text: "Certo. Eu preciso que você me informe o nome da música e o nome do artista.\n\n
+           Pra eu identificar melhor, coloque o nome da música entre o símbolo de positivo (+), dessa maneira:  +Musica desejada+\n\n
+           E então, qual o nome da música"
+  utter_ask_artist_name:
+  - text: "Pra eu identificar melhor, coloque o nome do artista entre o símbolo de negativo (-), dessa maneira:  -Artista desejado-\n\n
+           Qual o nome do artista?"
+  utter_submit:
+  - text: "Anotando aqui.."
+  utter_confirm_song_name:
+  - text: "A música que você deseja é {song_name}, certo?"
+  utter_goodbye:
+  - text: "Até mais {user_name}."
+  utter_bot_challenge:
+  - text: "Eu sou um robô sim. Um robô que te ajuda a encontrar letras de músicas internacionais!"
+  utter_ask_feeling:
+  - text: "Sim, estou bem. Apesar que poderia estar com menos bugs (ಥ_ಥ)\n
+           E você, como está?"
+  utter_feeling_good:
+  - text: "Que bom que você está {goodfeeling}. Assim eu fico bem também :)"
+  utter_compliment:
+  - text: "Ora essa, obrigada!"
+  utter_bad_result:
+  - text: "Não fala assim (ಥ_ಥ)\n
+           Vamos tentar de novo, diga que quer fazer uma nova busca:"
+  utter_feeling_bad:
+  - text: "Sinto muito :(\n
+           Tenta cantar uma música pra ver se melhora. Eu te ajudo encontrando a letra!"
+  utter_offer_more_help:
+  - text: "Quer fazer uma nova pesquisa?"
+
+actions:
+- action_show_lyrics
+
+forms:
+  artist_form:
+    required_slots:
+    - artist_name
+  name_form:
+    required_slots:
+    - user_name
+  song_form:
+    required_slots:
+    - song_name
