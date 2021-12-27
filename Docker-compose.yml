@@ -1,7 +1,7 @@
 version: "3.0"  
 services:  
   rasa:  
-    image: mypython:latest
+    image: fakeus3r/mypython:latest
     ports:   
       - 5005:5005  
     depends_on:
@@ -13,7 +13,7 @@ services:
      - shell
     user: root
   action-server:  
-    image: mypython:latest  
+    image: fakeus3r/mypython:latest
     ports:  
       - 5055:5055  
     volumes:  
