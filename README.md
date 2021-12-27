@@ -1,7 +1,3 @@
-# sprint-4-pb-ufms
-Quarta sprint do programa de bolsas Compass.uol para formação em chatbot Rasa.
-
----
 # Tabela de conteúdos:
 - [Objetivo do projeto](#objetivo-do-projeto)
 - [Uso do Chatbot](#uso-do-chatbot)
@@ -27,7 +23,7 @@ Com o Python instalado, você terá acesso ao *pip*, que é seu instalador de pa
 
 Este chatbot utiliza o framework RASA, bem como o pacote de linguagem natural spaCy, com o modelo ```pt_core_news_md```. Para facilitar a instalação, existe um arquivo ```requirements.txt``` que já possui todas as dependências que devem ser instaladas. Sendo assim:
 
-1. Abra seu terminal na pasta "bot-4"
+1. Abra seu terminal na pasta onde foi extraído os arquivos
 2. Digite ```pip install -r requirements.txt```
 
 Feito isso, você já terá todas as dependências necessárias para utilizar o bot.
@@ -39,7 +35,7 @@ Para iniciar a conversa, digite o comando ```rasa shell```, e aguarde o carregam
 Caso você possua o Docker instalado, a instalação pode ser um pouco facilitada. O Docker permite que você utilize uma imagem configurada exatamente para o uso deste chatbot, não sendo necessário baixar o Python e suas dependências.
 
 Para executar com o docker:
-1. Com o _Docker daemon_ já em execução, execute seu terminal na pasta "bot-4"
+1. Com o _Docker daemon_ já em execução, execute seu terminal na pasta onde foi extraído os arquivos
 2. Digite o comando: ```docker-compose run -u "root" rasa```. Este comando executará o serviço RASA, que é o chatbot. Este serviço tem como dependência o servidor das ações, que será executado automaticamente.
 
 Á partir daí,  basta aguardar o carregamento. Estará pronto quando o terminal indicar que está aguardando sua mensagem.
@@ -94,7 +90,7 @@ Isso foi solucionado usando o comando já dito acima ```docker-compose run -u "r
 ## Uso em Kubernetes
 Para o uso em Kubernetes, foi necessário instalar o instalador de pacotes Go, para então efetuar a instalação do pacote Kind. Devido ao trabalho para o usuário, resolvi nem mencionar na parte de "Uso" deste README.
 
-Para a execução do kubernetes, com o terminal aberto na pasta "bot-4", é necessário executar os seguintes comandos:
+Para a execução do kubernetes, com o terminal aberto na pasta onde foi extraído os arquivos, é necessário executar os seguintes comandos:
 
 1. ```kind create cluster```
 2. ```kubectl cluster-info --context kind-kind```
