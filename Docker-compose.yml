@@ -1,14 +1,24 @@
 version: "3.0"  
 services:  
   rasa:  
-    image: rasa/rasa:latest
+    image: mypython:latest
     ports:   
       - 5005:5005  
+    depends_on:
+      - action-server
     volumes:   
       - ./:/app  
-    command:  
-      - run  
-  app:  
-    image: bot3:latest  
+    command:
+     - rasa
+     - shell
+    user: root
+  action-server:  
+    image: mypython:latest  
     ports:  
       - 5055:5055  
+    volumes:  
+      - ./actions:/app/actions  
+    command:  
+      - rasa
+      - run
+      - actions

@@ -1,6 +1,6 @@
 version: "3.0"
 nlu:
-- regex: name
+- regex: user
   examples: |
     - /([A-Z a-z])/
 - intent: greet
@@ -42,12 +42,23 @@ nlu:
     - Não
 - intent: bot_challenge
   examples: |
-    - Você é um robô?
+    - Voce é um robo?
     - Você é um humano?
     - estou falando com um bot?
     - estou falando com um humano?
     - voce tem sentimentos?
     - quem é você?
+
+- intent: owner_challenge
+  examples: |
+    - quem te criou?
+    - quem fez voce?
+    - como você nasceu?
+    - quem te fez?
+    - quem é você?
+    - o que voce é?
+    - quem que fez você?
+
 - intent: ask_for_lyric
   examples: |
     - Gostaria da letra de uma música
@@ -66,7 +77,8 @@ nlu:
     - não encontrei o que eu queria
     - não era essa
     - não deu certo
-- intent: inform_user_name #person_name
+
+- intent: inform_user_name 
   examples: |
     - Eu me chamo [Pedro](user)
     - Meu nome é [Luis](user)
@@ -77,6 +89,7 @@ nlu:
     - meu nome é [Leonardo](user)
     - [Claudio](user)
     - [daniel](user)
+
 - intent: inform_song_name
   examples: |
     - a musica que eu quero é [+heaven+](song)
@@ -109,12 +122,12 @@ nlu:
     - [-abba-](artist)
     - [-Silk Groove-](artist)
     - [-Second Nature-](artist)
-    - [-Asking Alexandria](artist)
-    - O nome da banda é [bring me the horizon](artist)
-    - a cantora é a [Avril Lavigne](artist)
-    - o artista é [the strokes](artist)
-# Só pra descontrair (como se eu n tivesse mais coisa pra fazer)
+    - [-Asking Alexandria-](artist)
+    - O nome da banda é [-bring me the horizon-](artist)
+    - a cantora é a [-Avril Lavigne-](artist)
+    - o artista é [-the strokes-](artist)
 
+# Só pra descontrair (como se eu n tivesse mais coisa pra fazer)
 - intent: ask_feeling
   examples: |
     - como voce está?
@@ -152,6 +165,9 @@ nlu:
     - to bem não
     - não to legal
     - estou entristecido
+    - eu nao estou bem
+    - nao estou legal
+    - eu estou triste
 
 - intent: compliment
   examples: |
@@ -176,5 +192,548 @@ nlu:
     - não funcionou
     - nao consegui achar a letra
 
+#Tabelas de informações
+- lookup: artist
+  examples: |
+    - -Drake-
+    - -Ed Sheeran-
+    - -Bad Bunny-
+    - -Ariana Grande-
+    - -The Weeknd-
+    - -Justin Bieber-
+    - -Post Malone-
+    - -Eminem-
+    - -Taylor Swift-
+    - -J Balvin-
+    - -BTS-
+    - -Kanye West-
+    - -Billie Eilish-
+    - -Juice WRLD-
+    - -Ozuna-
+    - -Khalid-
+    - -Coldplay-
+    - -XXXTENTACION-
+    - -Travis Scott-
+    - -Imagine Dragons-
+    - -Rihanna-
+    - -Dua Lipa-
+    - -Maroon 5-
+    - -Shawn Mendes-
+    - -David Guetta-
+    - -Calvin Harris-
+    - -Daddy Yankee-
+    - -Bruno Mars-
+    - -Sam Smith-
+    - -Queen-
+    - -Kendrick Lamar-
+    - -The Chainsmokers-
+    - -One Direction-
+    - -Chris Brown-
+    - -Beyoncé-
+    - -Sia-
+    - -Future-
+    - -Nicki Minaj-
+    - -Lady Gaga-
+    - -Halsey-
+    - -Selena Gomez-
+    - -J. Cole-
+    - -Anuel AA-
+    - -The Beatles-
+    - -Maluma-
+    - -Twenty One Pilots-
+    - -Adele-
+    - -Katy Perry-
+    - -Linkin Park-
+    - -Kygo-
+    - -Marshmello-
+    - -Avicii-
+    - -Lil Uzi Vert-
+    - -Farruko-
+    - -Camila Cabello-
+    - -Lana Del Rey-
+    - -Jason Derulo-
+    - -Demi Lovato-
+    - -Red Hot Chili Peppers-
+    - -Arctic Monkeys-
+    - -Nicky Jam-
+    - -Shakira-
+    - -Rauw Alejandro-
+    - -Panic! At The Disco-
+    - -OneRepublic-
+    - -Martin Garrix-
+    - -Miley Cyrus-
+    - -Michael Jackson-
+    - -G-Eazy-
+    - -Harry Styles-
+    - -KAROL G-
+    - -Pitbull-
+    - -Major Lazer-
+    - -Cardi B-
+    - -Ellie Goulding-
+    - -Charlie Puth-
+    - -Lil Wayne-
+    - -Doja Cat-
+    - -Wiz Khalifa-
+    - -DaBaby-
+    - -Sebastian Yatra-
+    - -Young Thug-
+    - -Sech-
+    - -21 Savage-
+    - -Fall Out Boy-
+    - -Diplo-
+    - -Logic-
+    - -Lil Baby-
+    - -Migos-
+    - -Mac Miller-
+    - -Tyga-
+    - -John Mayer-
+    - -Alan Walker-
+    - -Pop Smoke-
+    - -Metallica-
+    - -Myke Towers-
+    - -DJ Snake-
+    - -Macklemore-
+    - -ZAYN-
+    - -Lil Peep-
+    - -Lauv-
+    - -James Arthur-
+    - -AC/DC-
+    - -Little Mix-
+    - -Zedd-
+    - -Trippie Redd-
+    - -Lil Nas X-
+    - -5 Seconds of Summer-
+    - -A Boogie Wit da Hoodie-
+    - -Robin Schulz-
+    - -Kodak Black-
+    - -NF-
+    - -Elton John-
+    - -Justin Timberlake-
+    - -Green Day-
+    - -Frank Ocean-
+    - -DJ Khaled-
+    - -Zara Larsson-
+    - -Olivia Rodrigo-
+    - -Luis Miguel-
+    - -Enrique Iglesias-
+    - -Bebe Rexha-
+    - -Black Eyed Peas-
+    - -BLACKPINK-
+    - -Pink Floy-
+    - -The Rolling Stones-
+    - -Nirvana-
+    - -JAY-Z-
+    - -SZA-
+    - -blackbear-
+    - -Britney Spears-
+    - -Machine Gun Kelly-
+    - -Guns N' Roses-
+    - -Skrillex-
+    - -Gorillaz-
+    - -Mariah Carey-
+    - -David Bowie-
+    - -Lorde-
+    - -Becky G-
+    - -The Killers-
+    - -Foo Fighters-
+    - -blink-182-
+    - -The Neighbourhood-
+    - -U2-
+    - -Daft Punk-
+    - -Led Zeppelin-
+    - -Rita Ora-
+    - -The 1975-
+    - -Radiohead-
+    - -System Of A Down-
+    - -Elvis Presley-
+    - -Muse-
+    - -Snoop Dogg-
+    - -Joji-
+    - -Paramore-
+    - -Oasis-
+    - -Troye Sivan-
+    - -Slipknot-
+    - -Bon Jovi-
+    - -Cheat Codes-
+    - -Tame Impala-
+    - -Frank Sinatra-
+    - -Alicia Keys-
+    - -Luke Bryan-
+    - -Tove Lo-
+    - -The Lumineers-
+    - -6LACK-
+    - -Kings of Leon-
+    - -The Script-
+    - -Five Finger Death Punch-
+    - -Jason Mraz-
+    - -Natti Natasha-
+    - -Christian Nodal-
+    - -Alesso-
+    - -Glee Cast-
+    - -Florence + The Machine-
+    - -ABBA-
+    - -Zion & Lennox-
+    - -Gusttavo Lima-
+    - -Galantis-
+    - -Paulo Londra-
+    - -Creedence Clearwater Revival-
+    - -Alok-
+    - -Bruce Springsteen-
+    - -Zé Neto & Cristiano-
+    - -Madonna-
+    - -Macklemore & Ryan Lewis-
+    - -Lil Pump-
+    - -Kehlani-
+    - -Whitney Houston-
+    - -Nickelback-
+    - -Jonas Brothers-
+    - -Rammstein-
+    - -Bryson Tiller-
+    - -Capital Bra-
+    - -My Chemical Romance-
+    - -Niall Horan-
+    - -Justin Quiles-
+    - -Kelly Clarkson-
+    - -Arcangel-
+    - -Lenny Tavárez-
+    - -TWICE-
+    - -Morat-
+    - -Kane Brown-
+    - -NAV-
+    - -James Bay-
+    - -Piso 21-
+    - -Disturbed-
+    - -Morgan Wallen-
+    - -Vance Joy-
+    - -Bring Me The Horizon-
+    - -Avril Lavigne-
+    - -Aerosmith-
+    - -Jennifer Lopez-
+    - -Stevie Wonder-
+    - -Thomas Rhett-
+    - -Labrinth-
+    - -YG-
+    - -Henrique & Juliano-
+    - -Amy Winehouse-
+    - -Miguel-
+    - -Wisin-
+    - -Lil Skies-
+    - -Tones And I-
+    - -Kevin Gates-
+    - -Ryan Lewis-
+    - -YNW Melly-
+    - -Flume-
+    - -Backstreet Boys-
+    - -Dr. Dre-
+    - -Maná-
+    - -Lil Tecca-
+    - -Lil Tjay-
+    - -Hans Zimmer-
+    - -Jeremih-
+    - -Kesha-
+    - -Phil Collins-
+    - -Alejandro Fernández-
+    - -Fetty Wap-
+    - -Sean Paul-
+    - -Billy Joel-
+    - -Jason Aldean-
+    - -Three Days Grace-
+    - -Matheus & Kauan-
+    - -Akon-
+    - -Wisin & Yandel-
+    - -Avenged Sevenfold-
+    - -Eagles-
+    - -Yandel-
+    - -Prince Royce-
+    - -Steve Aoki-
+    - -The Offspring-
+    - -Nio Garcia-
+    - -Jack Harlow-
+    - -Lil Mosey-
+    - -Dan + Shay-
+    - -Wesley Safadão-
+    - -benny blanco-
+    - -The Strokes-
+    - -Alejandro Sanz-
+    - -Why Don't We-
+    - -Seeb-
+    - -Jessie J-
+    - -Trey Songz-
+    - -Duki-
+    - -George Ezra-
+    - -Céline Dion-
+    - -Lukas Graham-
+    - -Pentatonix-
+    - -CNCO-
+    - -Lizzo-
+    - -Pearl Jam-
+    - -Foster The People-
+    - -Ricky Martin-
+    - -Train-
+    - -Ricardo Arjona-
+    - -Johnny Cash-
+    - -Mark Ronson-
+    - -Jul-
+    - -Passenger-
+    - -H.E.R.-
+    - -Aventura-
+    - -Calibre 50-
+    - -Lin-Manuel Miranda-
+    - -Pablo Alborán-
+    - -Bob Dylan-
+    - -Glass Animals-
+    - -Cartel De Santa-
+    - -24kGoldn-
+    - -James Blunt-
+    - -Marc Anthony-
+    - -2 Chainz-
+    - -Quavo-
+    - -Don Toliver-
+    - -Ninho-
+    - -Sam Hunt-
+    - -ScHoolboy Q-
+    - -Dire Straits-
+    - -PARTYNEXTDOOR-
+    - -Daniel Caesar-
+    - -Rudimental-
+    - -Anderson .Paak-
+    - -Lil Yachty-
+    - -Marvin Gaye-
+    - -Liam Payne-
+    - -Bryan Adams-
+    - -Bee Gees-
+    - -Offset-
+    - -Ski Mask The Slump God-
+    - -Armin van Buuren-
+    - -alt-J-
+    - -Jhené Aiko-
+    - -Charli XCX-
+    - -Bon Iver-
+    - -Nelly-
+    - -Sigala-
+    - -BROCKHAMPTON-
+    - -Blake Shelton-
+    - -Alec Benjamin-
+    - -LANY-
+    - -Rex Orange County-
+    - -Cage The Elephant-
+    - -Carlos Vives-
+    - -The Police-
+    - -Mike Posner-
+    - -Arijit Singh-
+    - -ILLENIUM-
+    - -The Black Keys-
+    - -Lil Durk-
+    - -Iron Maiden-
+    - -Danny Ocean-
+    - -Zac Brown Band-
+    - -Dean Lewis-
+    - -Jeremy Zucker-
+    - -The Vamps-
+    - -Birdy-
+    - -Skillet-
+    - -Maiara & Maraisa-
+    - -A$AP Ferg-
+    - -Calum Scott-
+    - -R3HAB-
+    - -Maren Morris-
+    - -The Doors-
+    - -Juanes-
+    - -Måneskin-
+    - -Carly Rae Jepsen-
+    - -Soda Stereo-
+    - -Madison Beer-
+    - -Chris Stapleton-
+    - -Summer Walker-
+    - -Papa Roach-
+    - -Journey-
+    - -SAINt JHN-
+    - -Bradley Cooper-
+    - -Boyce Avenue-
+    - -Lost Frequencies-
+    - -Joan Sebastian-
+    - -RAF Camora-
+    - -ROSALÍA-
+    - -Korn-
+    - -T.I.-
+    - -Conan Gray-
+    - -Tim McGraw-
+    - -Iggy Azalea-
+    - -Mabel-
+    - -Rise Against-
+    - -John Williams-
+    - -EXO-
+    - -Noah Cyrus-
+    - -Juan Gabriel-
+    - -Lunay-
+    - -Bibi Blocksberg-
+    - -Mau y Ricky-
+    - -Eric Church-
+    - -Paul McCartney-
+    - -Destiny's Child-
+    - -Norah Jones-
+    - -Os Barões Da Pisadinha-
+    - -Weezer-
+    - -The xx-
+    - -Jesse & Joy-
+    - -Rich The Kid-
+    - -Nick Jonas-
+    - -Depeche Mode-
+    - -Simon & Garfunkel-
+    - -The Cure-
+    - -Hillsong Worship-
+    - -Kenny Chesney-
+    - -La Arrolladora Banda El Limón De Rene Camacho-
+    - -Normani-
+    - -Los Ángeles Azules-
+    - -Breaking Benjamin-
+    - -NLE Choppa-
+    - -Aminé-
+    - -Bonez MC-
+    - -PNL-
+    - -The Beach Boys-
+    - -Volbeat-
+    - -Christina Perri-
+    - -Sabrina Carpenter-
+    - -Vicente Fernández-
+    - -MAGIC!-
+    - -X Ambassadors-
+    - -Ufo361-
+    - -Bizarrap-
+    - -Sam Feldt-
+    - -JP Cooper-
+    - -Jon Bellion-
+    - -George Michael-
+    - -Eric Clapton-
+    - -iann dior-
+    - -Kid Ink-
+    - -MARINA-
+    - -Becky Hill-
+    - -Jimi Hendrix-
+    - -MEDUZA-
+    - -Rick Ross-
+    - -Tate McRae-
+    - -R.E.M.-
+    - -Dimitri Vegas & Like Mike-
+    - -The Game-
+    - -Earth, Wind & Fire-
+    - -KYLE-
+    - -Grey-
+    - -Kali Uchis-
+    - -AJR-
+    - -El Alfa-
+    - -Cali Y El Dandee-
+    - -Outkast-
+    - -Matoma-
+    - -B.o.B-
+    - -Samra-
+    - -Hillsong UNITED-
+    - -Van Morrison-
+    - -Imanbek-
+    - -Jax Jones-
+    - -KHEA-
+    - -The Fray-
+    - -Dermot Kennedy-
+    - -Grupo Firme-
+    - -T-Pain-
+    - -Lynyrd Skynyrd-
+    - -DNCE-
+    - -Milky Chance-
+    - -Daryl Hall & John Oates-
+    - -Robbie Williams-
+    - -Of Monsters and Men-
+    - -A Day To Remember-
+    - -The Smiths-
+    - -Andy Grammer-
+    - -Shinedown-
+    - -Rag'n'Bone Man-
+    - -Quinn XCII-
+    - -Years & Years-
+    - -Juan Magán-
+    - -Stormzy-
+    - -Ludovico Einaudi-
+    - -Van Halen-
+    - -Black Sabbath-
+    - -Rod Stewart-
+    - -Rage Against The Machine-
+    - -Prince-
+    - -Nelly Furtado-
+    - -Evanescence-
+    - -Scorpions-
+    - -Sum 41-
+    - -Ozzy Osbourne-
+    - -Two Door Cinema Club-
+    - -KISS-
+    - -M83-
+    - -Thirty Seconds To Mars-
+    - -Bullet For My Valentine-
+    - -Sean Kingston-
+    - -deadmau5-
+    - -Audioslave-
+    - -The Goo Goo Dolls-
+    - -YUNGBLUD-
+    - -Spice Girls-
+    - -The All-American Rejects-
+    - -Pixies-
+    - -AURORA-
+    - -Seether-
+    - -Megadeth-
+    - -Death Cab for Cutie-
+    - -a-ha-
+    - -Canserbero-
+    - -ONE OK ROCK-
+    - -Leonard Cohen-
+    - -Chet Faker-
 
-
+- lookup: song
+  examples: |
+    - +Shape of You+
+    - +Despacito+
+    - +Perfect+
+    - +Blinding Lights+
+    - +Dance Monkey+
+    - +rockstar (feat. 21 Savage)+
+    - +Old Town Road+
+    - +Someone You Loved+
+    - +bad guy+
+    - +Closer+
+    - +One Dance+
+    - +Sunflower - Spider-Man: Into the Spider-Verse+
+    - +Believer+
+    - +Señorita+
+    - +Goosebumps+
+    - +Say You Won't Let Go+
+    - +Havana (feat. Young Thug)+
+    - +Thinking out Loud+
+    - +All of Me+
+    - +Cheap Thrills+
+    - +God's Plan+
+    - +Lucid Dreams+
+    - +Something Just Like This+
+    - +Photograph+
+    - +Don't Start Now+
+    - +Starboy+
+    - +Bohemian Rhapsody+
+    - +Thunder+
+    - +HUMBLE.+
+    - +Don't Let Me Down+
+    - +New Rules+
+    - +SAD!+
+    - +Sorry+
+    - +Let Me Love You+
+    - +Faded+
+    - +Love Yourself+
+    - +Roses+
+    - +Shallow+
+    - +Take Me to Church+
+    - +SICKO MODE+
+    - +Lean On+
+    - +Happier+
+    - +I Don't Care (with Justin Bieber)+
+    - +lovely (with Khalid)+
+    - +7 rings+
+    - +Let Her Go+
+    - +Jocelyn Flores+
+    - +Circles+
+    - +Without Me+
+    - +XO Tour Llif3+

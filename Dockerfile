@@ -1,8 +1,12 @@
-FROM rasa/rasa-sdk:latest
+FROM python:3.8-slim
+
+USER root
 WORKDIR /app
 COPY . .
-USER root
 RUN pip install -r /app/requirements.txt
-COPY ./actions /app/actions
+
 USER 1001
-ENTRYPOINT ["rasa", "shell"]
+
+# set entrypoint for interactive shells
+
+CMD ["bash"]

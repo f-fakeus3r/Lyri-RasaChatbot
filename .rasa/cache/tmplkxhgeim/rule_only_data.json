@@ -1,7 +1,0 @@
-{
-  "rule_only_slots": [],
-  "rule_only_loops": [
-    "artist_form",
-    "song_form"
-  ]
-}

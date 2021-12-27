@@ -2,50 +2,68 @@ version: "3.0"
 
 rules:
 
+######################
+#Formulario ativado nos stories
+# Realiza o submit do formulario
+- rule: submit name form
+  condition:
+  - active_loop: user_name_form
+  steps:
+    - action: user_name_form
+    - active_loop: null
+    - action: utter_proper_greet
+    - action: utter_offer_help
+######################
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-# - rule: Say 'I am a bot' anytime the user challenges
-#   steps:
-#   - intent: bot_challenge
-#   - action: utter_iamabot
-
-
-# ativa o formulário
+######################
+# Ativa o formulário
 - rule: activate song form
   steps:
-    - intent: ask_for_lyric   # intent that triggers form activation
-    - action: song_form      # run the form
-    - active_loop: song_form # this form is active
+    - intent: ask_for_lyric
+    - action: song_form
+    - active_loop: song_form 
 
-# realiza o submit do formulario
+# Realiza o submit do formulario
 - rule: submit song form
   condition:
-  - active_loop: song_form   # this form must be active
+  - active_loop: song_form
   steps:
-    - action: song_form      # run the form
-    - active_loop: null            # the form is no longer active because it has been filled
-    - action: utter_submit         # action to take after the form is complete
+    - action: song_form
+    - active_loop: null
+    - action: utter_submit
     - action: utter_confirm_song_name
     - action: utter_ask_artist_name
 
-
+######################
+# Ativa o formulário
 - rule: active artist form
   steps:
     - intent: inform_artist_name
     - action: artist_form
     - active_loop: artist_form
 
+# Realiza o submit do formulario
 - rule: submit artist form
   condition:
-  - active_loop: artist_form   # this form must be active
+  - active_loop: artist_form
   steps:
-    - action: artist_form      # run the form
-    - active_loop: null            # the form is no longer active because it has been filled
-    - action: utter_submit         # action to take after the form is complete
+    - action: artist_form
+    - active_loop: null
+    - action: utter_submit
     - action: action_show_lyrics
     - action: utter_offer_more_help
+
+#Era pra trazer uma mensagem caso o bot não entenda
+- rule: Fallback
+  steps:
+    - intent: nlu_fallback
+    - action: utter_rephrase
+
+
 
 
