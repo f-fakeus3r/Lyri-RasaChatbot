@@ -6,7 +6,7 @@
 - [Desenvolvimento](#desenvolvimento)
   * [Bibliotecas e tecnologias utilizadas](#bibliotecas-e-tecnologias-utilizadas)
   * [Criação do chatbot](#criação-do-chatbot)
-  * [Criação do Dockerfile/Docker-Compose](#criação-do-dockerfile/docker-compose)
+  * [Criação do Dockerfile/Docker-Compose](#criação-do-dockerfiledocker-compose)
 - [Dificuldades encontradas](#dificuldades-encontradas)
   * [Reconhecimento de entidades](#reconhecimento-de-entidades)
   * [Uso em Docker - problemas de permissão](#uso-em-docker---problemas-de-permissão)
