@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-goodfeeling",
+      "2": "I-goodfeeling",
+      "3": "L-goodfeeling",
+      "4": "U-goodfeeling",
+      "5": "B-user",
+      "6": "I-user",
+      "7": "L-user",
+      "8": "U-user",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-goodfeeling": 1,
+      "I-goodfeeling": 2,
+      "L-goodfeeling": 3,
+      "U-goodfeeling": 4,
+      "B-user": 5,
+      "I-user": 6,
+      "L-user": 7,
+      "U-user": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]
